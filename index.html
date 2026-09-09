@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎉 Happy Birthday Junaid Iqbal! 🎉</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+        
+        h1 {
+            color: #ff6b6b;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+        
+        .emoji-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .emoji-btn {
+            font-size: 40px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            border: none;
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .emoji-btn:hover {
+            transform: scale(1.2);
+        }
+        
+        .emoji-btn.collected {
+            background: #ff6b6b;
+            transform: scale(1.1);
+        }
+        
+        .progress {
+            margin: 20px 0;
+            font-size: 1.2em;
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .section {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f0f4ff;
+            border-radius: 10px;
+            display: none;
+        }
+        
+        .section.active {
+            display: block;
+            animation: slideIn 0.5s;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 10px 5px;
+            transition: background 0.3s;
+        }
+        
+        button:hover {
+            background: #764ba2;
+        }
+        
+        .puzzle {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+        
+        input[type="text"], input[type="file"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #667eea;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        
+        .success {
+            color: #28a745;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .error {
+            color: #dc3545;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .game-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+        
+        .dua {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            font-style: italic;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 HAPPY BIRTHDAY JUNAID IQBAL! 🎉</h1>
+        <p style="font-size: 1.3em; color: #764ba2; margin-bottom: 20px;">💝 A Special Journey For You 💝</p>
+        
+        <!-- Step 1: Collect Hearts -->
+        <div class="section active" id="step1">
+            <h2>Step 1: ❤️ Collect All Hearts! ❤️</h2>
+            <p>Click on all the hearts to unlock the next surprises!</p>
+            <div class="emoji-grid" id="heartGrid">
+                <button class="emoji-btn" onclick="collectEmoji(this)">❤️</button>
+                <button class="emoji-btn" onclick="collectEmoji(this)">❤️</button>
+                <button class="emoji-btn" onclick="collectEmoji(this)">❤️</button>
+                <button class="emoji-btn" onclick="collectEmoji(this)">❤️</button>
+                <button class="emoji-btn" onclick="collectEmoji(this)">❤️</button>
+                <button class="emoji-btn" onclick="collectEmoji(this)">❤️</button>
+                <button class="emoji-btn" onclick="collectEmoji(this)">❤️</button>
+                <button class="emoji-btn" onclick="collectEmoji(this)">❤️</button>
+                <button class="emoji-btn" onclick="collectEmoji(this)">❤️</button>
+                <button class="emoji-btn" onclick="collectEmoji(this)">❤️</button>
+            </div>
+            <div class="progress">Collected: <span id="heartCount">0</span>/10 ❤️</div>
+            <button onclick="nextStep()">Next Step →</button>
+        </div>
+        
+        <!-- Step 2: Gaming -->
+        <div class="section" id="step2">
+            <h2>Step 2: 🎮 Let's Play a Game! 🎮</h2>
+            <div class="game-box">
+                <p>Guess the number between 1-10!</p>
+                <input type="number" id="gameInput" min="1" max="10" placeholder="Enter a number">
+                <button onclick="playGame()">Submit Guess</button>
+                <div id="gameResult"></div>
+            </div>
+            <button onclick="nextStep()">Next Step →</button>
+        </div>
+        
+        <!-- Step 3: Puzzles -->
+        <div class="section" id="step3">
+            <h2>Step 3: 🧩 Solve These Puzzles! 🧩</h2>
+            
+            <div class="puzzle">
+                <p><strong>Puzzle 1:</strong> I have cities but no houses, forests but no trees, and water but no fish. What am I?</p>
+                <input type="text" id="puzzle1" placeholder="Your answer...">
+                <button onclick="checkPuzzle(1, 'map')">Check Answer</button>
+                <div id="puzzle1Result"></div>
+            </div>
+            
+            <div class="puzzle">
+                <p><strong>Puzzle 2:</strong> What has keys but no locks?</p>
+                <input type="text" id="puzzle2" placeholder="Your answer...">
+                <button onclick="checkPuzzle(2, 'piano')">Check Answer</button>
+                <div id="puzzle2Result"></div>
+            </div>
+            
+            <div class="puzzle">
+                <p><strong>Puzzle 3:</strong> What can run but never walks?</p>
+                <input type="text" id="puzzle3" placeholder="Your answer...">
+                <button onclick="checkPuzzle(3, 'water')">Check Answer</button>
+                <div id="puzzle3Result"></div>
+            </div>
+            
+            <button onclick="nextStep()">Next Step →</button>
+        </div>
+        
+        <!-- Step 4: Upload & Memories -->
+        <div class="section" id="step4">
+            <h2>Step 4: 📸 Share Your Moment! 📸</h2>
+            <p>Upload your selfie or voice message to make this special!</p>
+            
+            <div class="game-box">
+                <p><strong>📷 Upload a Selfie:</strong></p>
+                <input type="file" id="selfieUpload" accept="image/*">
+                <button onclick="uploadFile('selfie')">Upload Selfie</button>
+                <div id="selfieResult"></div>
+            </div>
+            
+            <div class="game-box">
+                <p><strong>🎤 Leave a Voice/Message:</strong></p>
+                <textarea id="voiceMessage" placeholder="Write your birthday wish or message for Junaid..."></textarea>
+                <button onclick="saveMessage()">Save Message</button>
+                <div id="messageResult"></div>
+            </div>
+            
+            <button onclick="nextStep()">Next Step →</button>
+        </div>
+        
+        <!-- Step 5: Final Surprise -->
+        <div class="section" id="step5">
+            <h2>Step 5: 🎁 SURPRISE TIME! 🎁</h2>
+            <div class="game-box">
+                <p style="font-size: 1.5em; margin: 20px 0;">🎂 HAPPY BIRTHDAY JUNAID IQBAL! 🎂</p>
+                <p>You are an amazing person! 🌟</p>
+                <p>Wishing you a year full of joy, success, and happiness! 💫</p>
+                <p style="font-size: 2em; margin: 20px 0;">🎉 🎈 🎊 🎁 ⭐ 🎮 🍰</p>
+            </div>
+            
+            <button onclick="nextStep()">See Prayers & Duas →</button>
+        </div>
+        
+        <!-- Step 6: Duas & Prayers -->
+        <div class="section" id="step6">
+            <h2>Step 6: 🤲 Duas & Prayers for You 🤲</h2>
+            
+            <div class="dua">
+                <p><strong>Allahumma:</strong></p>
+                <p>اللہم بارک لنا فی هذا الیوم المبارک</p>
+                <p>"Ya Allah, bless us on this blessed day"</p>
+            </div>
+            
+            <div class="dua">
+                <p><strong>Dua for Birthday:</strong></p>
+                <p>اللہم انت نعم الرب و انت نعم المولیٰ فجزاک اللہ خیر</p>
+                <p>"O Allah, You are the Best Lord, bless this person with goodness"</p>
+            </div>
+            
+            <div class="dua">
+                <p><strong>For Health & Happiness:</strong></p>
+                <p>اللہم أصلح لنا ديننا الذي هو عصمة أمرنا وأصلح لنا دنيانا</p>
+                <p>"O Allah, make our religion and worldly affairs better"</p>
+            </div>
+            
+            <div class="dua">
+                <p><strong>Final Blessing:</strong></p>
+                <p>جزاك الله خيرا - May Allah bless you abundantly! 💚</p>
+            </div>
+            
+            <p style="margin-top: 30px; font-size: 1.2em; color: #28a745; font-weight: bold;">
+                🌙 May your life be filled with blessings and joy! 🌙
+            </p>
+        </div>
+    </div>
+    
+    <script>
+        let heartCollected = 0;
+        let gameAnswer = Math.floor(Math.random() * 10) + 1;
+        
+        function collectEmoji(btn) {
+            if (!btn.classList.contains('collected')) {
+                btn.classList.add('collected');
+                heartCollected++;
+                document.getElementById('heartCount').textContent = heartCollected;
+            }
+        }
+        
+        function playGame() {
+            let input = document.getElementById('gameInput').value;
+            let result = document.getElementById('gameResult');
+            
+            if (input == gameAnswer) {
+                result.innerHTML = '<p class="success">🎉 Correct! You won! 🎉</p>';
+            } else if (input < gameAnswer) {
+                result.innerHTML = '<p class="error">Too low! Try again!</p>';
+            } else {
+                result.innerHTML = '<p class="error">Too high! Try again!</p>';
+            }
+        }
+        
+        function checkPuzzle(num, correctAnswer) {
+            let input = document.getElementById('puzzle' + num).value.toLowerCase().trim();
+            let result = document.getElementById('puzzle' + num + 'Result');
+            
+            if (input === correctAnswer) {
+                result.innerHTML = '<p class="success">✅ Correct Answer!</p>';
+            } else {
+                result.innerHTML = '<p class="error">❌ Try again! The answer is: ' + correctAnswer + '</p>';
+            }
+        }
+        
+        function uploadFile(type) {
+            let fileInput = document.getElementById('selfieUpload');
+            let result = document.getElementById('selfieResult');
+            
+            if (fileInput.files.length > 0) {
+                result.innerHTML = '<p class="success">✅ Photo uploaded successfully!</p>';
+            } else {
+                result.innerHTML = '<p class="error">Please select a file</p>';
+            }
+        }
+        
+        function saveMessage() {
+            let message = document.getElementById('voiceMessage').value;
+            let result = document.getElementById('messageResult');
+            
+            if (message.trim().length > 0) {
+                result.innerHTML = '<p class="success">✅ Message saved! Message: "' + message + '"</p>';
+            } else {
+                result.innerHTML = '<p class="error">Please write a message</p>';
+            }
+        }
+        
+        function nextStep() {
+            let sections = document.querySelectorAll('.section');
+            let currentActive = null;
+            
+            for (let i = 0; i < sections.length; i++) {
+                if (sections[i].classList.contains('active')) {
+                    currentActive = i;
+                    sections[i].classList.remove('active');
+                    break;
+                }
+            }
+            
+            if (currentActive !== null && currentActive < sections.length - 1) {
+                sections[currentActive + 1].classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>
