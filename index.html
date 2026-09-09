@@ -26,7 +26,7 @@
             background: white;
             border-radius: 20px;
             padding: 30px;
-            max-width: 600px;
+            max-width: 700px;
             width: 100%;
             box-shadow: 0 10px 40px rgba(0,0,0,0.3);
             text-align: center;
@@ -38,39 +38,54 @@
             font-size: 2.5em;
         }
         
-        .emoji-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 10px;
+        /* VERTICAL EMOJI GRID - Download Style */
+        .emoji-grid-vertical {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
             margin: 30px 0;
             padding: 20px;
             background: #f8f9fa;
             border-radius: 10px;
         }
         
+        .emoji-row {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
         .emoji-btn {
-            font-size: 40px;
+            font-size: 50px;
             cursor: pointer;
             transition: transform 0.2s;
-            border: none;
+            border: 3px solid #667eea;
             background: white;
-            padding: 10px;
+            padding: 15px;
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .emoji-btn:hover {
-            transform: scale(1.2);
+            transform: scale(1.15);
+            background: #fff3cd;
         }
         
         .emoji-btn.collected {
-            background: #ff6b6b;
+            background: #28a745;
+            border-color: #28a745;
             transform: scale(1.1);
         }
         
         .progress {
             margin: 20px 0;
-            font-size: 1.2em;
+            font-size: 1.3em;
             color: #667eea;
             font-weight: bold;
         }
@@ -103,6 +118,7 @@
             font-size: 1em;
             margin: 10px 5px;
             transition: background 0.3s;
+            font-weight: bold;
         }
         
         button:hover {
@@ -114,21 +130,24 @@
             padding: 20px;
             border-radius: 10px;
             margin: 15px 0;
+            border-left: 5px solid #667eea;
         }
         
         input[type="text"], input[type="file"], textarea {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             margin: 10px 0;
             border: 2px solid #667eea;
             border-radius: 5px;
             font-size: 1em;
+            font-family: Arial;
         }
         
         .success {
             color: #28a745;
             font-weight: bold;
             margin: 10px 0;
+            font-size: 1.1em;
         }
         
         .error {
@@ -142,6 +161,7 @@
             padding: 20px;
             border-radius: 10px;
             margin: 15px 0;
+            border: 2px solid #667eea;
         }
         
         .dua {
@@ -151,6 +171,29 @@
             margin: 15px 0;
             font-style: italic;
             line-height: 1.8;
+            border-left: 5px solid #ffc107;
+        }
+        
+        .surprise-box {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8c42 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        
+        .question-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 2px solid #667eea;
+        }
+        
+        .question-box input {
+            width: 100%;
         }
     </style>
 </head>
@@ -159,130 +202,193 @@
         <h1>🎉 HAPPY BIRTHDAY JUNAID IQBAL! 🎉</h1>
         <p style="font-size: 1.3em; color: #764ba2; margin-bottom: 20px;">💝 A Special Journey For You 💝</p>
         
-        <!-- Step 1: Collect Hearts -->
+        <!-- Step 1: Download Style - Vertical & Horizontal Hearts -->
         <div class="section active" id="step1">
-            <h2>Step 1: ❤️ Collect All Hearts! ❤️</h2>
-            <p>Click on all the hearts to unlock the next surprises!</p>
-            <div class="emoji-grid" id="heartGrid">
-                <button class="emoji-btn" onclick="collectEmoji(this)">❤️</button>
-                <button class="emoji-btn" onclick="collectEmoji(this)">❤️</button>
-                <button class="emoji-btn" onclick="collectEmoji(this)">❤️</button>
-                <button class="emoji-btn" onclick="collectEmoji(this)">❤️</button>
-                <button class="emoji-btn" onclick="collectEmoji(this)">❤️</button>
-                <button class="emoji-btn" onclick="collectEmoji(this)">❤️</button>
-                <button class="emoji-btn" onclick="collectEmoji(this)">❤️</button>
-                <button class="emoji-btn" onclick="collectEmoji(this)">❤️</button>
-                <button class="emoji-btn" onclick="collectEmoji(this)">❤️</button>
-                <button class="emoji-btn" onclick="collectEmoji(this)">❤️</button>
+            <h2>Step 1: ❤️ COLLECT ALL HEARTS! ❤️</h2>
+            <p style="margin: 15px 0; font-size: 1.1em;">Click on hearts like downloading! ⬇️</p>
+            
+            <div class="emoji-grid-vertical">
+                <div class="emoji-row">
+                    <button class="emoji-btn" onclick="collectEmoji(this)">❤️</button>
+                    <button class="emoji-btn" onclick="collectEmoji(this)">❤️</button>
+                    <button class="emoji-btn" onclick="collectEmoji(this)">❤️</button>
+                </div>
+                <div class="emoji-row">
+                    <button class="emoji-btn" onclick="collectEmoji(this)">❤️</button>
+                    <button class="emoji-btn" onclick="collectEmoji(this)">❤️</button>
+                    <button class="emoji-btn" onclick="collectEmoji(this)">❤️</button>
+                </div>
+                <div class="emoji-row">
+                    <button class="emoji-btn" onclick="collectEmoji(this)">❤️</button>
+                    <button class="emoji-btn" onclick="collectEmoji(this)">❤️</button>
+                    <button class="emoji-btn" onclick="collectEmoji(this)">❤️</button>
+                </div>
+                <div class="emoji-row">
+                    <button class="emoji-btn" onclick="collectEmoji(this)">��️</button>
+                </div>
             </div>
-            <div class="progress">Collected: <span id="heartCount">0</span>/10 ❤️</div>
-            <button onclick="nextStep()">Next Step →</button>
+            
+            <div class="progress">❤️ Collected: <span id="heartCount">0</span>/10 ❤️</div>
+            <button onclick="nextStep()">✅ Next Step →</button>
         </div>
         
         <!-- Step 2: Gaming -->
         <div class="section" id="step2">
-            <h2>Step 2: 🎮 Let's Play a Game! 🎮</h2>
+            <h2>Step 2: 🎮 LET'S PLAY A GAME! 🎮</h2>
             <div class="game-box">
-                <p>Guess the number between 1-10!</p>
+                <p style="margin-bottom: 15px; font-size: 1.1em;">Guess the number between 1-10!</p>
                 <input type="number" id="gameInput" min="1" max="10" placeholder="Enter a number">
-                <button onclick="playGame()">Submit Guess</button>
+                <button onclick="playGame()">🎲 Submit Guess</button>
                 <div id="gameResult"></div>
             </div>
-            <button onclick="nextStep()">Next Step →</button>
+            <button onclick="nextStep()">✅ Next Step →</button>
         </div>
         
         <!-- Step 3: Puzzles -->
         <div class="section" id="step3">
-            <h2>Step 3: 🧩 Solve These Puzzles! 🧩</h2>
+            <h2>Step 3: 🧩 SOLVE THESE PUZZLES! 🧩</h2>
+            <p style="margin-bottom: 20px; color: #667eea; font-weight: bold;">Let's make you smile! 😊</p>
             
             <div class="puzzle">
-                <p><strong>Puzzle 1:</strong> I have cities but no houses, forests but no trees, and water but no fish. What am I?</p>
+                <p><strong>🧩 Puzzle 1:</strong> I have cities but no houses, forests but no trees, and water but no fish. What am I?</p>
                 <input type="text" id="puzzle1" placeholder="Your answer...">
-                <button onclick="checkPuzzle(1, 'map')">Check Answer</button>
+                <button onclick="checkPuzzle(1, 'map')">Check Answer ✓</button>
                 <div id="puzzle1Result"></div>
             </div>
             
             <div class="puzzle">
-                <p><strong>Puzzle 2:</strong> What has keys but no locks?</p>
+                <p><strong>🧩 Puzzle 2:</strong> What has keys but no locks?</p>
                 <input type="text" id="puzzle2" placeholder="Your answer...">
-                <button onclick="checkPuzzle(2, 'piano')">Check Answer</button>
+                <button onclick="checkPuzzle(2, 'piano')">Check Answer ✓</button>
                 <div id="puzzle2Result"></div>
             </div>
             
             <div class="puzzle">
-                <p><strong>Puzzle 3:</strong> What can run but never walks?</p>
+                <p><strong>🧩 Puzzle 3:</strong> What can run but never walks?</p>
                 <input type="text" id="puzzle3" placeholder="Your answer...">
-                <button onclick="checkPuzzle(3, 'water')">Check Answer</button>
+                <button onclick="checkPuzzle(3, 'water')">Check Answer ✓</button>
                 <div id="puzzle3Result"></div>
             </div>
             
-            <button onclick="nextStep()">Next Step →</button>
+            <button onclick="nextStep()">✅ Next Step →</button>
         </div>
         
-        <!-- Step 4: Upload & Memories -->
+        <!-- Step 4: Questions for Junaid -->
         <div class="section" id="step4">
-            <h2>Step 4: 📸 Share Your Moment! 📸</h2>
-            <p>Upload your selfie or voice message to make this special!</p>
+            <h2>Step 4: 😊 ANSWER SOME HAPPY QUESTIONS! 😊</h2>
+            <p style="margin-bottom: 20px; color: #667eea;">Let me know more about you! 💚</p>
+            
+            <div class="question-box">
+                <p><strong>Q1: What's your favorite game?</strong></p>
+                <input type="text" id="q1" placeholder="Your answer...">
+            </div>
+            
+            <div class="question-box">
+                <p><strong>Q2: What makes you smile?</strong></p>
+                <input type="text" id="q2" placeholder="Your answer...">
+            </div>
+            
+            <div class="question-box">
+                <p><strong>Q3: What's your dream?</strong></p>
+                <input type="text" id="q3" placeholder="Your answer...">
+            </div>
+            
+            <button onclick="saveQuestions()">💾 Save Answers</button>
+            <div id="questionsResult"></div>
+            
+            <button onclick="nextStep()" style="margin-top: 20px;">✅ Next Step →</button>
+        </div>
+        
+        <!-- Step 5: Upload Media -->
+        <div class="section" id="step5">
+            <h2>Step 5: 📸 UPLOAD YOUR MOMENT! 📸</h2>
+            <p style="margin-bottom: 20px; color: #667eea;">Share with your friend! 💝</p>
             
             <div class="game-box">
-                <p><strong>📷 Upload a Selfie:</strong></p>
+                <p style="font-size: 1.1em; margin-bottom: 10px;"><strong>📷 Upload a Selfie:</strong></p>
                 <input type="file" id="selfieUpload" accept="image/*">
-                <button onclick="uploadFile('selfie')">Upload Selfie</button>
+                <button onclick="uploadFile('selfie')">📤 Upload Selfie</button>
                 <div id="selfieResult"></div>
             </div>
             
             <div class="game-box">
-                <p><strong>🎤 Leave a Voice/Message:</strong></p>
-                <textarea id="voiceMessage" placeholder="Write your birthday wish or message for Junaid..."></textarea>
-                <button onclick="saveMessage()">Save Message</button>
+                <p style="font-size: 1.1em; margin-bottom: 10px;"><strong>🎤 Leave a Voice/Message:</strong></p>
+                <textarea id="voiceMessage" placeholder="Write your birthday wish or message for Junaid..." rows="4"></textarea>
+                <button onclick="saveMessage()">💾 Save Message</button>
                 <div id="messageResult"></div>
             </div>
             
-            <button onclick="nextStep()">Next Step →</button>
+            <button onclick="nextStep()">✅ Next Step →</button>
         </div>
         
-        <!-- Step 5: Final Surprise -->
-        <div class="section" id="step5">
-            <h2>Step 5: 🎁 SURPRISE TIME! 🎁</h2>
-            <div class="game-box">
-                <p style="font-size: 1.5em; margin: 20px 0;">🎂 HAPPY BIRTHDAY JUNAID IQBAL! 🎂</p>
-                <p>You are an amazing person! 🌟</p>
-                <p>Wishing you a year full of joy, success, and happiness! 💫</p>
-                <p style="font-size: 2em; margin: 20px 0;">🎉 🎈 🎊 🎁 ⭐ 🎮 🍰</p>
-            </div>
-            
-            <button onclick="nextStep()">See Prayers & Duas →</button>
-        </div>
-        
-        <!-- Step 6: Duas & Prayers -->
+        <!-- Step 6: One More Game -->
         <div class="section" id="step6">
-            <h2>Step 6: 🤲 Duas & Prayers for You 🤲</h2>
+            <h2>Step 6: 🎮 ONE MORE GAME! 🎮</h2>
+            <div class="game-box">
+                <p style="font-size: 1.1em; margin-bottom: 15px;"><strong>🎯 Find the Emoji!</strong></p>
+                <p>Which emoji appears in this sequence: 🎂 🎉 🎁 🎈 🎂 🎊 🎂 🎈</p>
+                <p style="font-size: 1.2em; margin: 15px 0; font-weight: bold;">The emoji that appears 3 times?</p>
+                <input type="text" id="emojiGame" placeholder="Type the emoji">
+                <button onclick="playEmojiGame()">🎯 Check Answer</button>
+                <div id="emojiGameResult"></div>
+            </div>
+            
+            <button onclick="nextStep()">✅ Next Step →</button>
+        </div>
+        
+        <!-- Step 7: SURPRISE -->
+        <div class="section" id="step7">
+            <h2>Step 7: 🎁 SURPRISE TIME! 🎁</h2>
+            
+            <div class="surprise-box">
+                <p>🎂 HAPPY BIRTHDAY JUNAID IQBAL! 🎂</p>
+                <p style="margin-top: 15px;">You are an AMAZING person! 🌟</p>
+            </div>
+            
+            <p style="font-size: 1.3em; margin: 20px 0; font-weight: bold; color: #ff6b6b;">
+                🎉 🎈 🎊 🎁 ⭐ 🎮 🍰 🎂 💚
+            </p>
+            
+            <p style="font-size: 1.1em; color: #667eea; line-height: 1.8;">
+                Wishing you a year full of joy, success, happiness, and endless blessings! 
+                <br>May all your dreams come true! ✨
+            </p>
+            
+            <button onclick="nextStep()">🤲 See Prayers & Duas →</button>
+        </div>
+        
+        <!-- Step 8: Duas & Prayers -->
+        <div class="section" id="step8">
+            <h2>Step 8: 🤲 DUAS & PRAYERS FOR YOU 🤲</h2>
+            <p style="margin-bottom: 20px; color: #667eea; font-size: 1.1em;">May Allah bless you abundantly! 💚</p>
             
             <div class="dua">
-                <p><strong>Allahumma:</strong></p>
-                <p>اللہم بارک لنا فی هذا الیوم المبارک</p>
-                <p>"Ya Allah, bless us on this blessed day"</p>
+                <p><strong>🤲 Allahumma (Ya Allah):</strong></p>
+                <p style="margin-top: 10px; font-size: 1.05em;">اللہم بارک لنا فی هذا الیوم المبارک</p>
+                <p style="margin-top: 10px;">"Ya Allah, bless us on this blessed day"</p>
             </div>
             
             <div class="dua">
-                <p><strong>Dua for Birthday:</strong></p>
-                <p>اللہم انت نعم الرب و انت نعم المولیٰ فجزاک اللہ خیر</p>
-                <p>"O Allah, You are the Best Lord, bless this person with goodness"</p>
+                <p><strong>🤲 For Health & Happiness:</strong></p>
+                <p style="margin-top: 10px; font-size: 1.05em;">اللہم أصلح لنا ديننا الذي هو عصمة أمرنا</p>
+                <p style="margin-top: 10px;">"O Allah, make our faith strong and our life better"</p>
             </div>
             
             <div class="dua">
-                <p><strong>For Health & Happiness:</strong></p>
-                <p>اللہم أصلح لنا ديننا الذي هو عصمة أمرنا وأصلح لنا دنيانا</p>
-                <p>"O Allah, make our religion and worldly affairs better"</p>
+                <p><strong>🤲 For Success & Prosperity:</strong></p>
+                <p style="margin-top: 10px; font-size: 1.05em;">اللہم وفقنا لما تحب وترضیٰ</p>
+                <p style="margin-top: 10px;">"O Allah, grant us success in all we do"</p>
             </div>
             
             <div class="dua">
-                <p><strong>Final Blessing:</strong></p>
-                <p>جزاك الله خيرا - May Allah bless you abundantly! 💚</p>
+                <p><strong>🤲 Final Blessing:</strong></p>
+                <p style="margin-top: 10px; font-size: 1.1em; font-weight: bold;">جزاك الله خيرا - May Allah reward you with goodness! 💚</p>
             </div>
             
-            <p style="margin-top: 30px; font-size: 1.2em; color: #28a745; font-weight: bold;">
-                🌙 May your life be filled with blessings and joy! 🌙
+            <p style="margin-top: 30px; font-size: 1.3em; color: #28a745; font-weight: bold; line-height: 1.8;">
+                🌙 May your life be filled with blessings, joy, and endless happiness! 🌙
+                <br><br>
+                Happy Birthday Junaid Iqbal! 🎉❤️
             </p>
         </div>
     </div>
@@ -303,12 +409,17 @@
             let input = document.getElementById('gameInput').value;
             let result = document.getElementById('gameResult');
             
+            if (!input) {
+                result.innerHTML = '<p class="error">Please enter a number!</p>';
+                return;
+            }
+            
             if (input == gameAnswer) {
-                result.innerHTML = '<p class="success">🎉 Correct! You won! 🎉</p>';
+                result.innerHTML = '<p class="success">🎉 CORRECT! YOU WON! 🎉</p>';
             } else if (input < gameAnswer) {
-                result.innerHTML = '<p class="error">Too low! Try again!</p>';
+                result.innerHTML = '<p class="error">Too low! Try again! ⬆️</p>';
             } else {
-                result.innerHTML = '<p class="error">Too high! Try again!</p>';
+                result.innerHTML = '<p class="error">Too high! Try again! ⬇️</p>';
             }
         }
         
@@ -316,10 +427,28 @@
             let input = document.getElementById('puzzle' + num).value.toLowerCase().trim();
             let result = document.getElementById('puzzle' + num + 'Result');
             
+            if (!input) {
+                result.innerHTML = '<p class="error">Please enter an answer!</p>';
+                return;
+            }
+            
             if (input === correctAnswer) {
-                result.innerHTML = '<p class="success">✅ Correct Answer!</p>';
+                result.innerHTML = '<p class="success">✅ CORRECT! AWESOME! 😊</p>';
             } else {
-                result.innerHTML = '<p class="error">❌ Try again! The answer is: ' + correctAnswer + '</p>';
+                result.innerHTML = '<p class="error">❌ Try again! The answer is: <strong>' + correctAnswer + '</strong></p>';
+            }
+        }
+        
+        function saveQuestions() {
+            let q1 = document.getElementById('q1').value;
+            let q2 = document.getElementById('q2').value;
+            let q3 = document.getElementById('q3').value;
+            let result = document.getElementById('questionsResult');
+            
+            if (q1 && q2 && q3) {
+                result.innerHTML = '<p class="success">✅ Answers saved! Thanks for sharing! 💚</p>';
+            } else {
+                result.innerHTML = '<p class="error">Please answer all questions!</p>';
             }
         }
         
@@ -328,7 +457,7 @@
             let result = document.getElementById('selfieResult');
             
             if (fileInput.files.length > 0) {
-                result.innerHTML = '<p class="success">✅ Photo uploaded successfully!</p>';
+                result.innerHTML = '<p class="success">✅ Photo uploaded successfully! Your friend will love it! 📸</p>';
             } else {
                 result.innerHTML = '<p class="error">Please select a file</p>';
             }
@@ -339,9 +468,20 @@
             let result = document.getElementById('messageResult');
             
             if (message.trim().length > 0) {
-                result.innerHTML = '<p class="success">✅ Message saved! Message: "' + message + '"</p>';
+                result.innerHTML = '<p class="success">✅ Message saved! Message: "' + message + '" 💝</p>';
             } else {
-                result.innerHTML = '<p class="error">Please write a message</p>';
+                result.innerHTML = '<p class="error">Please write a message!</p>';
+            }
+        }
+        
+        function playEmojiGame() {
+            let input = document.getElementById('emojiGame').value.trim();
+            let result = document.getElementById('emojiGameResult');
+            
+            if (input === '🎂') {
+                result.innerHTML = '<p class="success">🎉 CORRECT! The birthday cake appears 3 times! 🎂</p>';
+            } else {
+                result.innerHTML = '<p class="error">❌ Not quite! The answer is 🎂 (appears 3 times!)</p>';
             }
         }
         
